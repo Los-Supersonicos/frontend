@@ -12,8 +12,10 @@ Vue.use(IconsPlugin);
 Vue.config.productionTip = false;
 
 import Home from "./components/Home";
+import maps from "./components/Maps"
 
-const routes = [{ path: "/", component: Home }];
+const routes = [{ path: "/", component: Home }, { path: "/Maps", component: maps } ];
+
 
 const router = new VueRouter({
   routes, // short for `routes: routes`
