@@ -11,7 +11,7 @@ Vue.use(IconsPlugin);
 
 Vue.config.productionTip = false;
 
-import Home from "./components/Home2";
+import Home from "./components/Home";
 
 const routes = [{ path: "/", component: Home }];
 
