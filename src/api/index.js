@@ -14,4 +14,7 @@ export const publications = {
     };
     return axios.post("/publications/", data);
   },
+  fetchAll: ()=> {
+    return axios.get("/publications/");
+  }
 };
