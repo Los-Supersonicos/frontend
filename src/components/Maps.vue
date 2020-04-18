@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import gmapsInit from '../utils/gmaps';
+import { publications } from "@/api";
+import gmapsInit from '@/utils/gmaps';
 var infoWindow
 var map
 var pos = {
@@ -12,11 +13,18 @@ var pos = {
             };
 export default {
   name: 'App',
+  async created() {
+
+  },
+  data() {
+        return {
+            google: ''
+        }
+    },
   async mounted() {
     try {
-      const google = await gmapsInit();
+      var google = await gmapsInit();
       
-      infoWindow = new google.maps.InfoWindow;
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
@@ -25,12 +33,9 @@ export default {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-            map.setZoom(13)
+            map.setZoom(15)
             map.setCenter(pos);
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-
+            fetchMarkers()
             
           }, function() {
             handleLocationError(true, infoWindow,map.getCenter());
@@ -39,10 +44,11 @@ export default {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
-      map = new google.maps.Map(this.$el);
+      map = google.maps.Map(this.$el);
     } catch (error) {
       console.error(error);
     }
+    this.google = google
   },
 };
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -52,8 +58,18 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-//function FetchMarkers() {
-//      }
+async function fetchMarkers() {
+    const response = await publications.fetchAll()
+    console.log(response)
+    response.data.features.map(x => {
+        publicationToMarker(x)
+    })
+      }
+function publicationToMarker(publication){
+    console.log(publication.geometry.coordinates)
+    pos = publication.geometry.coordinates
+    this.google.maps.Marker({position: {lat: pos[0], lng: pos[1]}, map: map});
+}
 </script>
 
 <style>
