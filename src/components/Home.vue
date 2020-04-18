@@ -39,6 +39,7 @@
                 >
               </div>
             </div>
+            <Geocoder></Geocoder>
           </div>
         </div>
       </div>
@@ -48,10 +49,13 @@
 
 <script>
 import { VueTyper } from "vue-typer";
+import {Geocoder} from "./Geocoder";
+
 export default {
   name: "Home",
   components: {
     VueTyper,
+    Geocoder
   },
   data() {
     return {
