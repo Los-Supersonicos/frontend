@@ -27,13 +27,7 @@
                   caret-animation="blink"
                 ></vue-typer>
               </h3>
-              <a
-                class="boxed-btn3 wow fadeInLeft"
-                data-wow-duration="1s"
-                data-wow-delay=".2s"
-                href="portfolio.html"
-                >Visit Our Works</a
-              >
+              <a href="#" class="genric-btn info e-large">Necesito Ayuda</a>
             </div>
           </div>
         </div>

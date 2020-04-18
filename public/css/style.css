@@ -1167,7 +1167,7 @@ h3 {
 
 /* line 1, ../../Arafath/CL/December/233. Startup/HTML/scss/_slider.scss */
 .slider_bg_1 {
-  background-image: url(../img/banner/banner.png);
+  background-image: url(../img/banner/banner.jpg);
 }
 
 /* line 4, ../../Arafath/CL/December/233. Startup/HTML/scss/_slider.scss */
@@ -1177,9 +1177,10 @@ h3 {
 
 /* line 9, ../../Arafath/CL/December/233. Startup/HTML/scss/_slider.scss */
 .slider_area .single_slider {
-  position: relative;
+  /* emi metio mano */
+  /* position: relative; */
   z-index: 0;
-  height: 900px;
+  height: 700px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
