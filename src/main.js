@@ -1,15 +1,17 @@
 import Vue from "vue";
-import Buefy from "buefy";
 import App from "./App.vue";
 import VueRouter from "vue-router";
-import "buefy/dist/buefy.css";
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
 
-import Home from "./components/Home";
+Vue.use(VueRouter);
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 
 Vue.config.productionTip = false;
 
-Vue.use(Buefy);
-Vue.use(VueRouter);
+import Home from "./components/Home2";
 
 const routes = [{ path: "/", component: Home }];
 
