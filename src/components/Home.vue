@@ -5,15 +5,8 @@
         <div class="row align-items-center justify-content-start">
           <div class="col-lg-10 col-md-10">
             <div class="slider_text" style="margin-top: 0px;">
-              <h3>
-                Entre todos salimos adelante!
-              </h3>
-              <p style="font-size: 2rem; color: white;">
-                Contanos, que te esta pasando?
-              </p>
-              <p style="font-size: 2.5rem; color: white; margin-top:30px;">
-                En mi barrio,
-              </p>
+              <p style="font-size: 2rem; color: white;">Contanos, que te esta pasando?</p>
+              <p style="font-size: 2.5rem; color: white; margin-top:30px;">En mi barrio,</p>
               <div style="font-size: 2rems;">
                 <vue-typer
                   :text="texts"
@@ -30,17 +23,22 @@
                 ></vue-typer>
               </div>
               <div class="buttons">
-                <a href="#" class="genric-btn info e-large">Pedir Ayuda</a>
+                <b-button variant="info" v-b-modal.modal-1>Pedir Ayuda</b-button>
                 <a
                   href="#"
                   style="margin-left:10px;"
                   class="genric-btn danger e-large"
-                  >Ver el mapa de mi barrio</a
-                >
+                >Ver el mapa de mi barrio</a>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <!-- Para probar nomas -->
+    <div class="container">
+      <div>
+        <PublicationModal id="modal-1" title="¿En que precisas ayuda?" />
       </div>
     </div>
   </div>
@@ -48,10 +46,12 @@
 
 <script>
 import { VueTyper } from "vue-typer";
+import PublicationModal from "@/components/PublicationModal";
 export default {
   name: "Home",
   components: {
     VueTyper,
+    PublicationModal
   },
   data() {
     return {
@@ -59,10 +59,10 @@ export default {
         "Hay una familia que le falta de comer",
         "Hay un abuelo que no tiene los remedios",
         "Al comedor social le falta leche y carne",
-        "El centro de salud necesita no tiene gasas",
-      ],
+        "El centro de salud necesita no tiene gasas"
+      ]
     };
-  },
+  }
 };
 </script>
 
