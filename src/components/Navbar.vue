@@ -15,8 +15,19 @@
               <div class="main-menu  d-none d-lg-block text-center">
                 <nav>
                   <ul id="navigation">
-                    <li><a class="active" href="#">Mi Barrio</a></li>
-                    <li><a href="#">Necesito ayuda</a></li>
+                    <li>
+                      <router-link :to="{ name: 'home' }">Inicio</router-link>
+                    </li>
+                    <li>
+                      <router-link :to="{ name: 'home' }"
+                        >Mi Barrio</router-link
+                      >
+                    </li>
+                    <li>
+                      <router-link :to="{ name: 'add-publication' }"
+                        >Necesito Ayuda</router-link
+                      >
+                    </li>
                     <li><a href="#">Puedo dar una mano</a></li>
                     <!-- <li>
                       <a href="#">pages <i class="ti-angle-down"></i></a>
