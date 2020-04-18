@@ -1035,7 +1035,8 @@ h3 {
 
 /* line 90, ../../Arafath/CL/December/233. Startup/HTML/scss/_header.scss */
 .header-area .main-header-area .main-menu ul li a:hover {
-  color: #615cfd;
+  font-weight: bold;
+  /* color: #615cfd; */
 }
 
 /* line 94, ../../Arafath/CL/December/233. Startup/HTML/scss/_header.scss */
@@ -4124,10 +4125,10 @@ h6 {
 
 /* line 169, ../../Arafath/CL/December/233. Startup/HTML/scss/_elements.scss */
 .genric-btn.e-large {
-  padding: 0 40px;
-  line-height: 50px;
+  /* padding: 0 40px; */
+  /* line-height: 50px; */
   font-size: large;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 /* line 173, ../../Arafath/CL/December/233. Startup/HTML/scss/_elements.scss */

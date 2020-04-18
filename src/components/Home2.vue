@@ -29,13 +29,15 @@
                   caret-animation="blink"
                 ></vue-typer>
               </div>
-              <a href="#" class="genric-btn info e-large">Pedir Ayuda</a>
-              <a
-                href="#"
-                style="margin-left:10px;"
-                class="genric-btn danger e-large"
-                >Ver el mapa de mi barrio</a
-              >
+              <div class="buttons">
+                <a href="#" class="genric-btn info e-large">Pedir Ayuda</a>
+                <a
+                  href="#"
+                  style="margin-left:10px;"
+                  class="genric-btn danger e-large"
+                  >Ver el mapa de mi barrio</a
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -63,3 +65,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.buttons {
+  margin-top: 30px;
+  display: flex;
+}
+</style>
