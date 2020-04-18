@@ -1,4 +1,17 @@
 import axios from "axios";
+// import { getPoint } from "@/geo";
 
-// https://github.com/axios/axios
-axios.defaults.baseURL = "http://localhost:8000/";
+axios.defaults.baseURL = "http://back.34.201.137.122.xip.io/api";
+
+export const publications = {
+  add: (publication) => {
+    const { type, description, location, active = true } = publication;
+    const data = {
+      type,
+      description,
+      location,
+      active,
+    };
+    return axios.post("/publications/", data);
+  },
+};
