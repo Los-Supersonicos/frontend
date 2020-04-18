@@ -4,15 +4,17 @@
       <div class="container">
         <div class="row align-items-center justify-content-start">
           <div class="col-lg-10 col-md-10">
-            <div class="slider_text" style="margin-top: -100px;">
-              <h3
-                class="wow fadeInLeft"
-                data-wow-duration="1s"
-                data-wow-delay=".1s"
-              >
-                En mi barrio,
+            <div class="slider_text" style="margin-top: 0px;">
+              <h3>
+                Entre todos salimos adelante!
               </h3>
-              <h3 class="typed">
+              <p style="font-size: 2rem; color: white;">
+                Contanos, que te esta pasando?
+              </p>
+              <p style="font-size: 2.5rem; color: white; margin-top:30px;">
+                En mi barrio,
+              </p>
+              <div style="font-size: 2rems;">
                 <vue-typer
                   :text="texts"
                   :repeat="Infinity"
@@ -26,12 +28,12 @@
                   :erase-on-complete="false"
                   caret-animation="blink"
                 ></vue-typer>
-              </h3>
-              <a href="#" class="genric-btn info e-large">Necesito Ayuda</a>
+              </div>
+              <a href="#" class="genric-btn info e-large">Pedir Ayuda</a>
               <a
                 href="#"
                 style="margin-left:10px;"
-                class="genric-btn primary e-large"
+                class="genric-btn danger e-large"
                 >Ver el mapa de mi barrio</a
               >
             </div>

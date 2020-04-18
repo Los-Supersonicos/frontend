@@ -4126,6 +4126,8 @@ h6 {
 .genric-btn.e-large {
   padding: 0 40px;
   line-height: 50px;
+  font-size: large;
+  font-weight: bold;
 }
 
 /* line 173, ../../Arafath/CL/December/233. Startup/HTML/scss/_elements.scss */
