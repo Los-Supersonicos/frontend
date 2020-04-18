@@ -1,5 +1,13 @@
 <template>
-  <b-modal :id="id" :title="title" ok-title="Publicar" ok-variant="info" size="lg" hide-footer>
+  <b-modal
+    :id="id"
+    :title="title"
+    ok-title="Publicar"
+    ok-variant="info"
+    size="lg"
+    hide-footer
+    :ref="ref"
+  >
     <b-form-group id="input-group-1" label="En donde se necesita ayuda?" label-for="input-1">
       <p>Pana aca va el geolocator que tas haciendo</p>
     </b-form-group>
@@ -16,10 +24,11 @@
         placeholder="En que se puede ayudar?"
         rows="3"
         max-rows="6"
+        :readonly="disabled"
       ></b-form-textarea>
     </b-form-group>
 
-    <b-button variant="info" @click="addPublication">Publicar</b-button>
+    <b-button variant="info" @click="addPublication" :disabled="disabled">Publicar</b-button>
   </b-modal>
 </template>
 
@@ -31,8 +40,13 @@ export default {
   name: "PublicationModal",
   methods: {
     addPublication: async function() {
-      const resp = await publications.add(this.publication);
-      console.log(resp);
+      this.disabled = true;
+      await publications.add(this.publication);
+      this.disabled = false;
+      this.hide();
+    },
+    hide: function() {
+      this.$refs[this.ref].hide();
     }
   },
   props: ["id", "title"],
@@ -43,7 +57,9 @@ export default {
         type: "N",
         location: getPoint("-35.5860008", "-58.0837458")
       },
-      categories: ["Alimentos", "Ropa"]
+      categories: ["Alimentos", "Ropa"],
+      disabled: false,
+      ref: "add-publication-modal"
     };
   }
 };
