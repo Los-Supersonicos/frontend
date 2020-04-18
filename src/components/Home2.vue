@@ -28,6 +28,12 @@
                 ></vue-typer>
               </h3>
               <a href="#" class="genric-btn info e-large">Necesito Ayuda</a>
+              <a
+                href="#"
+                style="margin-left:10px;"
+                class="genric-btn primary e-large"
+                >Ver el mapa de mi barrio</a
+              >
             </div>
           </div>
         </div>
