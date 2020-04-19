@@ -63,6 +63,8 @@ export default {
     navigator.geolocation.getCurrentPosition(async position => {
       this.location = position.coords;
       this.zoom = 13;
+      this.center.lat = this.location.latitude;
+      this.center.lng = this.location.longitude;
       const response = await publications.fetchAll();
       response.data.features.map(feature => {
         const [lat, lng] = feature.geometry.coordinates;
