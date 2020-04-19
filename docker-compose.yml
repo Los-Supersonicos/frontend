@@ -3,13 +3,10 @@ version: '3'
 services:
   app:
     build: .
-    volumes:
-      - "./:/app"
     restart: unless-stopped
     environment:
       VIRTUAL_PORT: 9000
       VIRTUAL_HOST: "front.34.201.137.122.xip.io"
-    command: "npm run serve -- --port 9000"
 
 networks:
   default:
