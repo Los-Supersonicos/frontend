@@ -7,7 +7,7 @@
         placeholder="Direccion"
         class="mr-2"
       ></b-form-input>
-      <b-button @click="getLocation">Buscar</b-button>
+      <b-button @click="getLocation" class="search-button">Buscar</b-button>
     </b-form>
   </b-form-group>
 </template>
@@ -36,3 +36,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.search-button {
+  background-color: #2A3177;
+  border-color: #2A3177;
+}
+</style>

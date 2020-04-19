@@ -22,7 +22,7 @@
       ></b-form-textarea>
     </b-form-group>
 
-    <b-button variant="info" @click="addPublication" :disabled="disabled" v-if="publication.location"
+    <b-button variant="primary" @click="addPublication" :disabled="disabled" v-if="publication.location" class="search-button"
       >Publicar</b-button
     >
   </b-modal>
@@ -91,3 +91,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.search-button {
+  background-color: #E60B66;
+  border-color: #E60B66;
+}
+.send-button {
+  background-color: #2A3177;
+  border-color: #2A3177;
+  margin-left:10px;
+}
+</style>
