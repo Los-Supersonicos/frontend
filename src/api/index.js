@@ -3,8 +3,16 @@ import axios from "axios";
 
 axios.defaults.baseURL = "http://back.34.201.137.122.xip.io/api";
 
+function auth (token) {
+  return {
+    headers: {
+      "Authorization": `jwt ${token}`
+    }
+  }
+}
+
 export const publications = {
-  add: (publication) => {
+  add: (publication, opts) => {
     const { type, description, location, active = true } = publication;
     const data = {
       type,
@@ -12,7 +20,9 @@ export const publications = {
       location,
       active,
     };
-    return axios.post("/publications/", data);
+    return axios.post("/publications/", data, {
+      ...auth(opts.token)
+    });
   },
   fetchAll: ()=> {
     return axios.get("/publications/");
