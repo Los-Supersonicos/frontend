@@ -5,9 +5,6 @@
       <router-view></router-view>
       <div class="footer">
         <div class="container">
-          <a v-if="$root.user" href="#" @click.prevent="$root.logout">
-            Logout
-          </a>
         </div>
       </div>
     </div>
@@ -27,12 +24,15 @@ export default {
 
 <style>
 #app {
-  font-family: Open Sans, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 .footer {
-  background: black;
+  background: #ffff;
   padding: 1em;
 }
+/* .vue-typer {
+  color: black !important;
+} */
 </style>
