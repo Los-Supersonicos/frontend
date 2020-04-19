@@ -1,7 +1,7 @@
 <template>
   <b-form-group
     id="input-group-1"
-    label="Donde necesitas la ayuda?"
+    :label="label"
     label-for="input-1"
   >
     <b-form-input v-model="address" placeholder="Direccion"></b-form-input>
@@ -13,6 +13,7 @@
 import { getLatLong } from "@/geo";
 export default {
   name: "Geocoder",
+  props: ["label"],
   data() {
     return {
       address: "",

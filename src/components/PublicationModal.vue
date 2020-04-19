@@ -8,20 +8,10 @@
     hide-footer
     :ref="ref"
   >
-    <b-form-group
-      id="input-group-1"
-      label="En donde se necesita ayuda?"
-      label-for="input-1"
-    >
-      <Geocoder @position="setPosition" />
-    </b-form-group>
+    <Geocoder @position="setPosition" label="Donde necesitas la ayuda?" />
+    <Maps width="50" height="50" :markersProp="markersProp"/>
 
-    <!-- Si se hacen categorias, las soportamoss -->
-    <!-- <b-form-group id="input-group-3" label="Categoria:" label-for="input-3">
-      <b-form-select id="input-3" v-model="publication.category" :options="categories" required></b-form-select>
-    </b-form-group>-->
-
-    <b-form-group id="input-group-2" label="Descripcion" label-for="input-2">
+    <b-form-group id="input-group-2" label="Descripcion" label-for="input-2" v-if="publication.location">
       <b-form-textarea
         id="textarea"
         v-model="publication.description"
@@ -32,7 +22,7 @@
       ></b-form-textarea>
     </b-form-group>
 
-    <b-button variant="info" @click="addPublication" :disabled="disabled"
+    <b-button variant="info" @click="addPublication" :disabled="disabled" v-if="publication.location"
       >Publicar</b-button
     >
   </b-modal>
@@ -42,12 +32,15 @@
 import { publications } from "@/api";
 import { getPoint } from "@/geo";
 import Geocoder from "@/components/Geocoder";
+import Maps from "@/components/Maps2";
+
 
 export default {
   name: "PublicationModal",
 
   components: {
     Geocoder,
+    Maps,
   },
 
   methods: {
@@ -64,6 +57,14 @@ export default {
       const { lat, lng } = position;
       const point = getPoint(lat, lng);
       this.location = point;
+      this.marker = {
+          position: { lat, lng },
+          properties: {
+            description: "Aqui",
+          }
+      };
+      this.markersProp.push(this.marker)
+      console.log(this.marker)
       console.log("POINT ", point);
     },
     hide: function() {
@@ -78,11 +79,13 @@ export default {
       publication: {
         description: "",
         type: "N",
-        location: getPoint("-35.5860008", "-58.0837458"),
+        location: null,
       },
+      marker: {},
       categories: ["Alimentos", "Ropa"],
       disabled: false,
       ref: "add-publication-modal",
+      markersProp: [],
     };
   },
 };

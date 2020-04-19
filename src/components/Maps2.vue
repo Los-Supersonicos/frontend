@@ -6,7 +6,7 @@
     }"
     :zoom="zoom"
     map-type-id="terrain"
-    style="width: 100vw; height: 100vh;"
+    :style="`width: ${this.width}vw; height: ${this.height}vh;`"
   >
     <GmapMarker
       :key="index"
@@ -29,16 +29,35 @@ const DEFAULT_ZOOM = 7;
 
 export default {
   name: "Maps",
-
+  props: {
+    width: {
+      type: String,
+      default: "100",
+    },
+    height: {
+      type: String,
+      default: "100",
+    },
+    markersProp: {
+      type: Array,
+      default: () => [],
+    }
+  },
   data() {
     return {
-      markers: [],
+      markers: [...this.markersProp],
       zoom: DEFAULT_ZOOM,
       location: BUENOS_AIRES
     };
   },
-
+  watch: {
+    markersProp: function() {
+      this.markers = [...this.markersProp]
+    },
+  },
   created: async function() {
+    console.log(this.markers)
+
     navigator.geolocation.getCurrentPosition(async position => {
       this.location = position.coords;
       this.zoom = 13;
