@@ -14,8 +14,10 @@
       :position="m.position"
       :clickable="true"
       :draggable="true"
+      :title="m.properties.description"
+      :label="m.properties.description"
       @click="center = m.position"
-    />
+    ></GmapMarker>
   </GmapMap>
 </template>
 
@@ -32,21 +34,24 @@ export default {
     return {
       markers: [],
       zoom: DEFAULT_ZOOM,
-      location: BUENOS_AIRES,
+      location: BUENOS_AIRES
     };
   },
 
   created: async function() {
-    navigator.geolocation.getCurrentPosition(async (position) => {
+    navigator.geolocation.getCurrentPosition(async position => {
       this.location = position.coords;
       this.zoom = 13;
       const response = await publications.fetchAll();
-      response.data.features.map((feature) => {
+      response.data.features.map(feature => {
         const [lat, lng] = feature.geometry.coordinates;
-        const position = { position: { lat, lng } };
-        this.markers.push(position);
+        const marker = {
+          position: { lat, lng },
+          properties: feature.properties
+        };
+        this.markers.push(marker);
       });
     });
-  },
+  }
 };
 </script>
