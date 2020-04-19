@@ -57,13 +57,14 @@ export default {
       const { lat, lng } = position;
       const point = getPoint(lat, lng);
       this.location = point;
+      this.publication.location = point;
       this.marker = {
           position: { lat, lng },
           properties: {
             description: "Aqui",
           }
       };
-      this.markersProp.push(this.marker)
+      this.markersProp = [this.marker]
       console.log(this.marker)
       console.log("POINT ", point);
     },
