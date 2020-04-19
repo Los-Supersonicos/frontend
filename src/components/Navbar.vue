@@ -19,15 +19,17 @@
                       <router-link :to="{ name: 'home' }" style="color: #3C3C3B;">Inicio</router-link>
                     </li>
                     <li>
-                      <router-link :to="{ name: 'home' }" style="color: #3C3C3B;">Mi Barrio</router-link>
+                      <router-link :to="{ name: 'maps' }" style="color: #3C3C3B;">Mi Barrio</router-link>
                     </li>
                     <li>
                       <router-link :to="{ name: 'home' }" style="color: #3C3C3B;">Necesito Ayuda</router-link>
                     </li>
                     <li>
-                      <a href="#">Puedo dar una mano</a>
+                      <a href="#" style="color: #3C3C3B;">Puedo dar una mano</a>
                     </li>
-                    <!-- <li>
+                    <!--
+
+                     <li>
                       <a href="#">pages <i class="ti-angle-down"></i></a>
                       <ul class="submenu">
                         <li>
@@ -45,9 +47,6 @@
                         <li><a href="#">single-blog</a></li>
                       </ul>
                     </li>-->
-                    <li>
-                      <a href="#">Quienes somos</a>
-                    </li>
                   </ul>
                 </nav>
               </div>
