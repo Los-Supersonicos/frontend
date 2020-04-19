@@ -7,7 +7,7 @@
             <div class="col-xl-2 col-lg-2">
               <div class="logo-img">
                 <a href="#">
-                  <img src="img/logo.png" alt />
+                  <img src="img/logo.png" style="width: 150px;"/>
                 </a>
               </div>
             </div>
@@ -16,13 +16,13 @@
                 <nav>
                   <ul id="navigation">
                     <li>
-                      <router-link :to="{ name: 'home' }">Inicio</router-link>
+                      <router-link :to="{ name: 'home' }" style="color: #3C3C3B;">Inicio</router-link>
                     </li>
                     <li>
-                      <router-link :to="{ name: 'home' }">Mi Barrio</router-link>
+                      <router-link :to="{ name: 'home' }" style="color: #3C3C3B;">Mi Barrio</router-link>
                     </li>
                     <li>
-                      <router-link :to="{ name: 'home' }">Necesito Ayuda</router-link>
+                      <router-link :to="{ name: 'home' }" style="color: #3C3C3B;">Necesito Ayuda</router-link>
                     </li>
                     <li>
                       <a href="#">Puedo dar una mano</a>

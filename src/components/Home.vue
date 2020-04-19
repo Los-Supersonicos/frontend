@@ -5,13 +5,13 @@
         <div class="row align-items-center justify-content-start">
           <div class="col-lg-10 col-md-10">
             <div class="slider_text" style="margin-top: 0px;">
-              <p style="font-size: 2rem; color: white;">
+              <div style="font-size: 1.5rem; font-weight: 300; color: #3C3C3B;">
                 Contanos, que te esta pasando?
-              </p>
-              <p style="font-size: 2.5rem; color: white; margin-top:30px;">
+              </div>
+              <div style="font-size: 1.5rem; color: #3C3C3B; font-weight: 300;">
                 En mi barrio,
-              </p>
-              <div style="font-size: 2rems;">
+              </div>
+              <div style="color: #3C3C3B !important;">
                 <vue-typer
                   :text="texts"
                   :repeat="Infinity"
@@ -27,12 +27,12 @@
                 ></vue-typer>
               </div>
               <div class="buttons">
-                <b-button variant="info" v-b-modal.modal-1
+                <b-button variant="info" v-b-modal.modal-1 class="help-button"
                   >Pedir Ayuda</b-button
                 >
                 <b-button
                   @click="goMaps"
-                  style="margin-left:10px"
+                  class="go-button"
                   variant="primary"
                   >Ver el mapa de mi barrio</b-button
                 >
@@ -65,6 +65,7 @@ export default {
   data() {
     return {
       texts: [
+        "Mi vecina necesita que paseen su mascota",
         "Hay una familia que le falta de comer",
         "Hay un abuelo que no tiene los remedios",
         "Al comedor social le falta leche y carne",
@@ -85,5 +86,14 @@ export default {
 .buttons {
   margin-top: 30px;
   display: flex;
+}
+.help-button {
+  background-color: #E60B66;
+  border-color: #E60B66;
+}
+.go-button {
+  background-color: #2A3177;
+  border-color: #2A3177;
+  margin-left:10px;
 }
 </style>
