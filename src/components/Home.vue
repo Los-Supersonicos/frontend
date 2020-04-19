@@ -6,7 +6,7 @@
           <div class="col-lg-10 col-md-10">
             <div class="slider_text" style="margin-top: 0px;">
               <div style="font-size: 1.5rem; font-weight: 300; color: #3C3C3B;">
-                Contanos, que te esta pasando?
+                Contanos, ¿qué te está pasando?
               </div>
               <div style="font-size: 1.5rem; color: #3C3C3B; font-weight: 300;">
                 En mi barrio,
@@ -69,7 +69,7 @@ export default {
         "Hay una familia que le falta de comer",
         "Hay un abuelo que no tiene los remedios",
         "Al comedor social le falta leche y carne",
-        "El centro de salud necesita no tiene gasas",
+        "El centro de salud no tiene gasas",
       ],
     };
   },
