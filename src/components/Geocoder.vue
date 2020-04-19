@@ -27,6 +27,7 @@ export default {
         return;
       }
       this.position = latLong ? latLong : null;
+      this.$emit("position", latLong);
     },
   },
 };

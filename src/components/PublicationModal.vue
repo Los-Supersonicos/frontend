@@ -13,7 +13,7 @@
       label="En donde se necesita ayuda?"
       label-for="input-1"
     >
-      <Geocoder />
+      <Geocoder @position="setPosition" />
     </b-form-group>
 
     <!-- Si se hacen categorias, las soportamoss -->
@@ -59,6 +59,12 @@ export default {
       await publications.add(this.publication, { token: this.$root.jwt });
       this.disabled = false;
       this.hide();
+    },
+    setPosition: function(position) {
+      const { lat, lng } = position;
+      const point = getPoint(lat, lng);
+      this.location = point;
+      console.log("POINT ", point);
     },
     hide: function() {
       this.$refs[this.ref].hide();
