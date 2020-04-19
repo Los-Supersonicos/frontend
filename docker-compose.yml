@@ -6,7 +6,8 @@ services:
     restart: unless-stopped
     environment:
       VIRTUAL_PORT: 9000
-      VIRTUAL_HOST: "front.34.201.137.122.xip.io"
+      VIRTUAL_HOST: "front.34.201.137.122.xip.io,entretodos.com.ar"
+      LETSENCRYPT_HOST: "entretodos.com.ar"
 
 networks:
   default:
