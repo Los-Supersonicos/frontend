@@ -8,7 +8,11 @@
     hide-footer
     :ref="ref"
   >
-    <b-form-group id="input-group-1" label="En donde se necesita ayuda?" label-for="input-1">
+    <b-form-group
+      id="input-group-1"
+      label="En donde se necesita ayuda?"
+      label-for="input-1"
+    >
       <Geocoder />
     </b-form-group>
 
@@ -28,43 +32,52 @@
       ></b-form-textarea>
     </b-form-group>
 
-    <b-button variant="info" @click="addPublication" :disabled="disabled">Publicar</b-button>
+    <b-button variant="info" @click="addPublication" :disabled="disabled"
+      >Publicar</b-button
+    >
   </b-modal>
 </template>
 
 <script>
 import { publications } from "@/api";
 import { getPoint } from "@/geo";
-import  Geocoder from "@/components/Geocoder";
+import Geocoder from "@/components/Geocoder";
 
 export default {
   name: "PublicationModal",
+
   components: {
     Geocoder,
   },
+
   methods: {
-    addPublication: async function() {
+    async addPublication() {
+      if (!this.$root.user) {
+        await this.$root.login();
+      }
       this.disabled = true;
-      await publications.add(this.publication);
+      await publications.add(this.publication, { token: this.$root.jwt });
       this.disabled = false;
       this.hide();
     },
     hide: function() {
       this.$refs[this.ref].hide();
-    }
+    },
   },
+
   props: ["id", "title"],
+
   data() {
     return {
       publication: {
         description: "",
         type: "N",
-        location: getPoint("-35.5860008", "-58.0837458")
+        location: getPoint("-35.5860008", "-58.0837458"),
       },
       categories: ["Alimentos", "Ropa"],
       disabled: false,
-      ref: "add-publication-modal"
+      ref: "add-publication-modal",
     };
-  }
+  },
 };
 </script>
