@@ -56,7 +56,13 @@
                 <span class="say_hi" v-if="$root.user">{{ $root.user.displayName }}</span>
                 <a href="#" data-scroll-nav="0" class="say_hi" v-else @click.prevent="$root.login">Ingresar</a>
               </div>
+                <a  style="float: right;" v-if="$root.user" href="#" @click.prevent="$root.logout">
+                Logout
+              </a>
             </div>
+            </div>
+            <div>
+
             <div class="col-12">
               <div class="mobile_menu d-block d-lg-none"></div>
             </div>
