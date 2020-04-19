@@ -61,12 +61,15 @@
 <script>
 import { VueTyper } from "vue-typer";
 import PublicationModal from "@/components/PublicationModal";
+
 export default {
   name: "Home",
+
   components: {
     VueTyper,
     PublicationModal,
   },
+
   data() {
     return {
       texts: [
@@ -77,6 +80,7 @@ export default {
       ],
     };
   },
+
   methods: {
     goMaps: function() {
       this.$router.push({ name: "maps" });

@@ -39,9 +39,12 @@ import { getPoint } from "@/geo";
 export default {
   name: "PublicationModal",
   methods: {
-    addPublication: async function() {
+    async addPublication () {
+      if (!this.$root.user) {
+        await this.$root.login()
+      }
       this.disabled = true;
-      await publications.add(this.publication);
+      await publications.add(this.publication, {token: this.$root.jwt});
       this.disabled = false;
       this.hide();
     },

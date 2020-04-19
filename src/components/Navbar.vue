@@ -54,7 +54,8 @@
             </div>
             <div class="col-lg-2 d-none d-lg-block">
               <div class="log_chat_area d-flex align-items-end">
-                <a href="#" data-scroll-nav="0" class="say_hi">Ingresar</a>
+                <span class="say_hi" v-if="$root.user">{{ $root.user.displayName }}</span>
+                <a href="#" data-scroll-nav="0" class="say_hi" v-else @click.prevent="$root.login">Ingresar</a>
               </div>
             </div>
             <div class="col-12">
