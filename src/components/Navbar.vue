@@ -22,10 +22,10 @@
                       <router-link :to="{ name: 'maps' }" style="color: #3C3C3B;">Mi Barrio</router-link>
                     </li>
                     <li>
-                      <router-link :to="{ name: 'home' }" style="color: #3C3C3B;">Necesito Ayuda</router-link>
+                      <a v-b-modal.modal-1 style="color: #3C3C3B; cursor: pointer;">Necesito Ayuda</a>
                     </li>
                     <li>
-                      <a href="#" style="color: #3C3C3B;">Puedo dar una mano</a>
+                      <router-link :to="{ name: 'maps' }" style="color: #3C3C3B;">Puedo dar una mano</router-link>
                     </li>
                     <!--
 
@@ -66,3 +66,4 @@
     </div>
   </header>
 </template>
+
