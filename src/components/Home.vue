@@ -38,7 +38,6 @@
                 >
               </div>
             </div>
-            <Geocoder></Geocoder>
           </div>
         </div>
       </div>

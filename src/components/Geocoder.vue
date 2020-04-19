@@ -1,30 +1,33 @@
 <template>
-    <section>
-        <form @submit="getPoints()">
-            <div class="form-group">
-                <label for="geocode">Ingrese ubicación</label>
-                <input v-model="code" type="text" class="form-control" id="geocode" placeholder="">
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-    </section>
+  <b-form-group
+    id="input-group-1"
+    label="Donde necesitas la ayuda?"
+    label-for="input-1"
+  >
+    <b-form-input v-model="address" placeholder="Direccion"></b-form-input>
+    <b-button @click="getLocation">Buscar</b-button>
+  </b-form-group>
 </template>
 
 <script>
+import { getLatLong } from "@/geo";
 export default {
-    name: 'Geocoder',
-    data() {
-        return {
-            code: ''
-        }
+  name: "Geocoder",
+  data() {
+    return {
+      address: "",
+      position: null,
+    };
+  },
+  methods: {
+    async getLocation() {
+      const latLong = await getLatLong(this.address);
+      // TODO: Replicate no location found
+      if (!latLong) {
+        return;
+      }
+      this.position = latLong ? latLong : null;
     },
-    methods: {
-        getPoints() {
-            fetch('https://maps.googleapis.com/maps/api/geocode/json?address='+this.code+'&key=AIzaSyC50wRXPH7ee92T9118G722gKyvaf8NFQw').then((res) =>{
-                console.log(res.json())
-            });
-        
-        }
-    }
-}
+  },
+};
 </script>
