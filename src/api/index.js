@@ -1,7 +1,7 @@
 import axios from "axios";
 // import { getPoint } from "@/geo";
 
-axios.defaults.baseURL = "http://api.entretodos.com.ar";
+axios.defaults.baseURL = "https://api.entretodos.com.ar";
 
 function auth (token) {
   return {
