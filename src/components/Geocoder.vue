@@ -4,8 +4,10 @@
     :label="label"
     label-for="input-1"
   >
-    <b-form-input v-model="address" placeholder="Direccion"></b-form-input>
-    <b-button @click="getLocation">Buscar</b-button>
+    <b-form inline>
+      <b-form-input v-model="address" placeholder="Direccion" class="mr-2"></b-form-input>
+      <b-button @click="getLocation">Buscar</b-button>
+    </b-form>
   </b-form-group>
 </template>
 

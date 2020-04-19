@@ -1,12 +1,9 @@
 <template>
   <GmapMap
-    :center="{
-      lat: location.latitude,
-      lng: location.longitude,
-    }"
+    :center="center"
     :zoom="zoom"
     map-type-id="terrain"
-    :style="`width: ${this.width}vw; height: ${this.height}vh;`"
+    :style="`max-width: ${this.width}vw; height: ${this.height}vh;`"
   >
     <GmapMarker
       :key="index"
@@ -47,12 +44,17 @@ export default {
     return {
       markers: [...this.markersProp],
       zoom: DEFAULT_ZOOM,
-      location: BUENOS_AIRES
+      location: BUENOS_AIRES,
+      center: {
+        lat: BUENOS_AIRES.latitude,
+        lng: BUENOS_AIRES.longitude
+      }
     };
   },
   watch: {
     markersProp: function() {
       this.markers = [...this.markersProp]
+      this.center = this.markersProp[this.markersProp.length-1].position
     },
   },
   created: async function() {
