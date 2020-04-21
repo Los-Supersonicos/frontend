@@ -9,12 +9,19 @@
       :key="index"
       v-for="(m, index) in markers"
       :position="m.position"
-      :clickable="false"
+      :clickable="true"
       :draggable="false"
-      @click="(m)"
+      @click="selectMarker(m)"
+    ></GmapMarker>
+
+    <GmapInfoWindow
+      :options="{maxWidth: 300}"
+      :position="infoWindow.position"
+      :opened="infoWindow.open"
+      @closeclick="infoWindow.open=false"
     >
-      <GmapInfoWindow :opened="true">{{ m.properties.description }}</GmapInfoWindow>
-    </GmapMarker>
+      <div v-html="infoWindow.template"></div>
+    </GmapInfoWindow>
   </GmapMap>
 </template>
 
@@ -45,6 +52,11 @@ export default {
       markers: [...this.markersProp],
       zoom: DEFAULT_ZOOM,
       location: BUENOS_AIRES,
+      infoWindow: {
+        position: BUENOS_AIRES,
+        open: false,
+        template: ""
+      },
       center: {
         lat: BUENOS_AIRES.latitude,
         lng: BUENOS_AIRES.longitude
@@ -53,6 +65,9 @@ export default {
   },
   methods: {
     selectMarker: function(m) {
+      this.infoWindow.position = m.position;
+      this.infoWindow.template = m.properties.description;
+      this.infoWindow.open = true;
       this.center = m.position;
     }
   },
