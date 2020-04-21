@@ -29,15 +29,15 @@ export default {
   props: {
     width: {
       type: String,
-      default: "100",
+      default: "100"
     },
     height: {
       type: String,
-      default: "100",
+      default: "100"
     },
     markersProp: {
       type: Array,
-      default: () => [],
+      default: () => []
     }
   },
   data() {
@@ -53,12 +53,12 @@ export default {
   },
   watch: {
     markersProp: function() {
-      this.markers = [...this.markersProp]
-      this.center = this.markersProp[this.markersProp.length-1].position
-    },
+      this.markers = [...this.markersProp];
+      this.center = this.markersProp[this.markersProp.length - 1].position;
+    }
   },
   created: async function() {
-    console.log(this.markers)
+    console.log(this.markers);
 
     navigator.geolocation.getCurrentPosition(async position => {
       this.location = position.coords;

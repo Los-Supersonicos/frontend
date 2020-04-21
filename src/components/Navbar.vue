@@ -7,7 +7,7 @@
             <div class="col-xl-2 col-lg-2">
               <div class="logo-img">
                 <a href="#">
-                  <img src="img/logo.png" style="width: 150px;"/>
+                  <img src="img/logo.png" style="width: 150px;" />
                 </a>
               </div>
             </div>
@@ -54,15 +54,23 @@
             <div class="col-lg-2 d-none d-lg-block">
               <div class="log_chat_area d-flex align-items-end">
                 <span class="say_hi" v-if="$root.user">{{ $root.user.displayName }}</span>
-                <a href="#" data-scroll-nav="0" class="say_hi" v-else @click.prevent="$root.login">Ingresar</a>
+                <a
+                  href="#"
+                  data-scroll-nav="0"
+                  class="say_hi"
+                  v-else
+                  @click.prevent="$root.login"
+                >Ingresar</a>
               </div>
-                <a  style="float: right;" v-if="$root.user" href="#" @click.prevent="$root.logout">
-                Logout
-              </a>
+              <a
+                style="float: right;"
+                v-if="$root.user"
+                href="#"
+                @click.prevent="$root.logout"
+              >Logout</a>
             </div>
-            </div>
-            <div>
-
+          </div>
+          <div>
             <div class="col-12">
               <div class="mobile_menu d-block d-lg-none"></div>
             </div>
@@ -70,6 +78,16 @@
         </div>
       </div>
     </div>
+    <PublicationModal id="modal-1" title="¿En que precisas ayuda?" />
   </header>
 </template>
 
+<script>
+import PublicationModal from "@/components/PublicationModal";
+export default {
+  name: "Navbar",
+  components: {
+    PublicationModal
+  }
+};
+</script>
