@@ -9,12 +9,11 @@
       :key="index"
       v-for="(m, index) in markers"
       :position="m.position"
-      :clickable="true"
-      :draggable="true"
-      :title="m.properties.description"
-      @click="selectMarker(m)"
+      :clickable="false"
+      :draggable="false"
+      @click="(m)"
     >
-      <GmapInfoWindow>Here {{ m.properties.description }}</GmapInfoWindow>
+      <GmapInfoWindow :opened="true">{{ m.properties.description }}</GmapInfoWindow>
     </GmapMarker>
   </GmapMap>
 </template>
