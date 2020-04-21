@@ -12,9 +12,10 @@
       :clickable="true"
       :draggable="true"
       :title="m.properties.description"
-      :label="m.properties.description"
-      @click="center = m.position"
-    ></GmapMarker>
+      @click="selectMarker(m)"
+    >
+      <GmapInfoWindow>Here {{ m.properties.description }}</GmapInfoWindow>
+    </GmapMarker>
   </GmapMap>
 </template>
 
@@ -50,6 +51,11 @@ export default {
         lng: BUENOS_AIRES.longitude
       }
     };
+  },
+  methods: {
+    selectMarker: function(m) {
+      this.center = m.position;
+    }
   },
   watch: {
     markersProp: function() {
